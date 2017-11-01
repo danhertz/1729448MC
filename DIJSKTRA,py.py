@@ -21,7 +21,7 @@ class Fila:
     def __init__(self):
         self.fila=[]
     def obtener(self):
-        return self.fila.pop(0)
+        return self.fila.pop()
     def meter(self,e):
         self.fila.append(0,e)
         return len(self.fila)
@@ -128,7 +128,8 @@ class Grafo:
         peso=0
         comp=dict()
         t=sorted(e.keys(),key=lambda k:e[k],reverse=True)
-        while len(t)>0:
+        nuevo=set()
+        while len(t)>0 and len(nuevo)<len(self.V):
             #print(len(t))
             arista=t.pop()
             w=e[arista]
